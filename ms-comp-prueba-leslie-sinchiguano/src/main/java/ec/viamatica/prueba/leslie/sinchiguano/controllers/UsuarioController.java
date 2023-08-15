@@ -17,14 +17,18 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
-	
-	
+
 	@Autowired
 	UsuarioService usuarioService;
 	
 	@GetMapping()
 	public ArrayList<Usuario> obtenerUsuarios(){
 		return usuarioService.obtenerUsuario();
+	}
+	
+	@GetMapping(name = "buscar")
+	public ArrayList<Usuario> buscarUsuario(String cadena){
+		return usuarioService.buscarUsuario(cadena);
 	}
 	
 	@PostMapping()

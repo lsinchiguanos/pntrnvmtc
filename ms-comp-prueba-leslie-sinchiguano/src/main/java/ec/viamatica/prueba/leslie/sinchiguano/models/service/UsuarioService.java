@@ -17,6 +17,10 @@ public class UsuarioService {
 		return (ArrayList<Usuario>) usuarioRepository.findAll();
 	}
 	
+	public ArrayList<Usuario> buscarUsuario(String cadena){
+		return (ArrayList<Usuario>) usuarioRepository.findAll();
+	}
+	
 	public Usuario registrarUsuario(Usuario usuario) {
 		return usuarioRepository.save(usuario);
 	}
