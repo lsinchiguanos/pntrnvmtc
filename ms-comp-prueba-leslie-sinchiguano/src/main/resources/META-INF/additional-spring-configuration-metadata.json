@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "Header",
+  "type": "java.lang.String",
+  "description": "Cabecera para el token"
+}]}
