@@ -23,7 +23,6 @@ public class SecurityConfig {
 					session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
 				})
 				.httpBasic(null)
-				.and()				
 				.build();
 	}
 	
