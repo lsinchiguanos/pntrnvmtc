@@ -40,7 +40,8 @@ public class UsuarioService {
 			String email = jsonObject.get("email").getAsString();
 			ArrayList<Usuario> usuarios = (ArrayList<Usuario>) query.getResultList();
 			for (Usuario usuario : usuarios) {
-				usuario.get
+				if (usuario.getEmailUsuario().equals(email)){
+				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
