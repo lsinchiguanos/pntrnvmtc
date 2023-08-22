@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.Date;
 
@@ -15,35 +13,24 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamicInsert
-@DynamicUpdate
-@Entity(name = "persona")
-public class Persona {
+@Entity(name = "vehiculoTipo")
+public class VehiculoTipo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPersona")
-    private Integer idPersona;
+    @Column(name = "idVehiculoTipo")
+    private Integer idVehiculoTipo;
 
-    @Column(name = "identificacionPersona", nullable = false, length = 13, unique = true)
-    private String identificacionPersona;
+    @Column(name = "descripcionVehiculoTipo", nullable = false, length = 50, unique = true)
+    private String descripcionVehiculoTipo;
 
-    @Column(name = "nombrePersona", nullable = false, length = 200)
-    private String nombrePersona;
-
-    @Column(name = "apellidoPersona", nullable = false, length = 200)
-    private String apellidoPersona;
-
-    @Column(name = "emailPersona", nullable = false, length = 50)
-    private String emailPersona;
-
-    @Column(name = "estadoPersona", nullable = false, insertable = false)
+    @Column(name = "estadoVehiculoTipo", nullable = false, insertable = false)
     @ColumnDefault("1")
     /* *
     1 -> activo
     2 -> inactivo
     * */
-    private Integer estadoPersona;
+    private Integer estadoVehiculoTipo;
 
     @Column(name = "createdAt", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date createdAt;

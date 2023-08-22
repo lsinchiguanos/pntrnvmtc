@@ -17,33 +17,24 @@ import java.util.Date;
 @NoArgsConstructor
 @DynamicInsert
 @DynamicUpdate
-@Entity(name = "persona")
-public class Persona {
+@Entity(name = "parqueadero")
+public class Parqueadero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPersona")
-    private Integer idPersona;
+    @Column(name = "idParqueadero")
+    private Integer idParqueadero;
 
-    @Column(name = "identificacionPersona", nullable = false, length = 13, unique = true)
-    private String identificacionPersona;
+    @Column(name = "descripcionParqueadero", nullable = false, length = 200, unique = true)
+    private String descripcionParqueadero;
 
-    @Column(name = "nombrePersona", nullable = false, length = 200)
-    private String nombrePersona;
-
-    @Column(name = "apellidoPersona", nullable = false, length = 200)
-    private String apellidoPersona;
-
-    @Column(name = "emailPersona", nullable = false, length = 50)
-    private String emailPersona;
-
-    @Column(name = "estadoPersona", nullable = false, insertable = false)
+    @Column(name = "estadoParqueadero", nullable = false, insertable = false)
     @ColumnDefault("1")
     /* *
     1 -> activo
     2 -> inactivo
     * */
-    private Integer estadoPersona;
+    private Integer estadoParqueadero;
 
     @Column(name = "createdAt", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date createdAt;

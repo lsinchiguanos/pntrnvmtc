@@ -17,33 +17,33 @@ import java.util.Date;
 @NoArgsConstructor
 @DynamicInsert
 @DynamicUpdate
-@Entity(name = "persona")
-public class Persona {
+@Entity(name = "usuarioRol")
+public class UsuarioRol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPersona")
-    private Integer idPersona;
+    @Column(name = "idUsuarioRol")
+    private Integer idUsuarioRol;
 
-    @Column(name = "identificacionPersona", nullable = false, length = 13, unique = true)
-    private String identificacionPersona;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", nullable = false)
+    private Usuario usuario;
 
-    @Column(name = "nombrePersona", nullable = false, length = 200)
-    private String nombrePersona;
+    @ManyToOne
+    @JoinColumn(name = "idRol", nullable = false)
+    private Rol rol;
 
-    @Column(name = "apellidoPersona", nullable = false, length = 200)
-    private String apellidoPersona;
+    @Column(name = "passUsuarioRol", nullable = false, length = 25)
+    private String passUsuarioRol;
 
-    @Column(name = "emailPersona", nullable = false, length = 50)
-    private String emailPersona;
-
-    @Column(name = "estadoPersona", nullable = false, insertable = false)
+    @Column(name = "estadoUsuarioRol", nullable = false, insertable = false)
     @ColumnDefault("1")
     /* *
     1 -> activo
     2 -> inactivo
+    3 -> bloqueado
     * */
-    private Integer estadoPersona;
+    private Integer estadoUsuarioRol;
 
     @Column(name = "createdAt", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date createdAt;

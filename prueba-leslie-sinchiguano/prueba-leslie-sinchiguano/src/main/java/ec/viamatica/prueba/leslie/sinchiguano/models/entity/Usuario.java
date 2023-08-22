@@ -23,11 +23,15 @@ public class Usuario {
     @Column(name = "idUsuario")
     private Integer idUsuario;
 
+    @ManyToOne
+    @JoinColumn(name = "idPersona", nullable = false)
+    private Persona persona;
+
     @Column(name = "nombreUsuario", nullable = false, length = 25, unique = true)
     private String nombreUsuario;
 
-    @Column(name = "passusuario", nullable = false, length = 25)
-    private String passUsuario;
+    @Column(name = "intentosUsuario")
+    private Integer intentosUsuario;
 
     @Column(name = "estadoUsuario", nullable = false, insertable = false)
     @ColumnDefault("1")

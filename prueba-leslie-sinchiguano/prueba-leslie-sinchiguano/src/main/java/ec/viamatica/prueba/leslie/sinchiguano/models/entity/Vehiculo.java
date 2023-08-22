@@ -21,6 +21,10 @@ public class Vehiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVehiculo;
 
+    @ManyToOne
+    @JoinColumn(name = "idMarca", nullable = false)
+    private Marca marca;
+
     @Column(name = "matriculaVehiculo", nullable = false, unique = true, length = 10)
     private String matriculaVehiculo;
 

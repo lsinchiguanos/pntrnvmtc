@@ -9,6 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -17,33 +18,36 @@ import java.util.Date;
 @NoArgsConstructor
 @DynamicInsert
 @DynamicUpdate
-@Entity(name = "persona")
-public class Persona {
+@Entity(name = "vehiculoPersona")
+public class VehiculoPersona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idPersona")
-    private Integer idPersona;
+    @Column(name = "idVehiculoPersona")
+    private Integer idVehiculoPersona;
 
-    @Column(name = "identificacionPersona", nullable = false, length = 13, unique = true)
-    private String identificacionPersona;
+    @ManyToOne
+    @JoinColumn(name = "idVehiculo", nullable = false)
+    private Vehiculo vehiculo;
 
-    @Column(name = "nombrePersona", nullable = false, length = 200)
-    private String nombrePersona;
+    @ManyToOne
+    @JoinColumn(name = "idPersona", nullable = false)
+    private Persona persona;
 
-    @Column(name = "apellidoPersona", nullable = false, length = 200)
-    private String apellidoPersona;
+    @ManyToOne
+    @JoinColumn(name = "idTarifa", nullable = false)
+    private Tarifa tarifa;
 
-    @Column(name = "emailPersona", nullable = false, length = 50)
-    private String emailPersona;
+    @Column(name = "valorTarifaVehiculoPersona", nullable = false, precision = 8, scale = 4)
+    private BigDecimal valorTarifaVehiculoPersona;
 
-    @Column(name = "estadoPersona", nullable = false, insertable = false)
+    @Column(name = "estadoVehiculoPersona", nullable = false, insertable = false)
     @ColumnDefault("1")
     /* *
     1 -> activo
     2 -> inactivo
     * */
-    private Integer estadoPersona;
+    private Integer estadoVehiculoPersona;
 
     @Column(name = "createdAt", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date createdAt;
