@@ -22,6 +22,10 @@ public class Vehiculo {
     private Integer idVehiculo;
 
     @ManyToOne
+    @JoinColumn(name = "idPersona", nullable = false)
+    private Persona persona;
+
+    @ManyToOne
     @JoinColumn(name = "idMarca", nullable = false)
     private Marca marca;
 
