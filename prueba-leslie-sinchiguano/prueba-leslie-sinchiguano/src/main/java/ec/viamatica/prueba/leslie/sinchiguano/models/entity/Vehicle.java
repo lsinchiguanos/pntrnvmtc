@@ -13,16 +13,33 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "marca")
-public class Marca {
+@Entity(name = "vehicle")
+public class Vehicle {
 
     @Id
+    @Column(name = "id_vehicle")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_marca")
-    private Integer idMarca;
+    private Integer idVehicle;
 
-    @Column(name = "name", nullable = false, length = 200, unique = true)
-    private String nameMarca;
+    @ManyToOne
+    @JoinColumn(name = "id_person", nullable = false)
+    private Person person;
+
+    @ManyToOne
+    @JoinColumn(name = "id_marca", nullable = false)
+    private Marca marca;
+
+    @Column(name = "plate", nullable = false, unique = true, length = 10)
+    private String plateVehicle;
+
+    @Column(name = "model", nullable = false)
+    private String modelVehicle;
+
+    @Column(name = "years", nullable = false)
+    private Integer yearVehicle;
+
+    @Column(name = "observation", length = 50, insertable = false, columnDefinition = "character varying(50) default 'Sin Observacion alguna'")
+    private String observationVehicle;
 
     @Column(name = "status", nullable = false, insertable = false)
     @ColumnDefault("1")
@@ -30,7 +47,7 @@ public class Marca {
     1 -> activo
     2 -> inactivo
     * */
-    private Integer statusMarca;
+    private Integer statusVehicle;
 
     @Column(name = "date_at", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date dateAt;

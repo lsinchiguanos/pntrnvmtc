@@ -17,33 +17,30 @@ import java.util.Date;
 @NoArgsConstructor
 @DynamicInsert
 @DynamicUpdate
-@Entity(name = "usuarioRol")
-public class UsuarioRol {
+@Entity(name = "user_roll")
+public class UserRoll {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUsuarioRol")
-    private Integer idUsuarioRol;
-
     @ManyToOne
-    @JoinColumn(name = "idUsuario", nullable = false)
-    private Usuario usuario;
+    @JoinColumn(name = "id_user", nullable = false)
+    private Users users;
 
+    @Id
     @ManyToOne
-    @JoinColumn(name = "idRol", nullable = false)
-    private Rol rol;
+    @JoinColumn(name = "id_roll", nullable = false)
+    private Roll roll;
 
-    @Column(name = "passUsuarioRol", nullable = false, length = 25)
-    private String passUsuarioRol;
+    @Column(name = "pass", nullable = false, length = 25)
+    private String passUser;
 
-    @Column(name = "estadoUsuarioRol", nullable = false, insertable = false)
+    @Column(name = "status", nullable = false, insertable = false)
     @ColumnDefault("1")
     /* *
     1 -> activo
     2 -> inactivo
     3 -> bloqueado
     * */
-    private Integer estadoUsuarioRol;
+    private Integer statusPass;
 
     @Column(name = "createdAt", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date createdAt;

@@ -13,16 +13,16 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "marca")
-public class Marca {
+@Entity(name = "vehicle_type")
+public class VehicleType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_marca")
-    private Integer idMarca;
+    @Column(name = "id_type")
+    private Integer idType;
 
-    @Column(name = "name", nullable = false, length = 200, unique = true)
-    private String nameMarca;
+    @Column(name = "description", nullable = false, length = 50, unique = true)
+    private String descriptionType;
 
     @Column(name = "status", nullable = false, insertable = false)
     @ColumnDefault("1")
@@ -30,7 +30,7 @@ public class Marca {
     1 -> activo
     2 -> inactivo
     * */
-    private Integer statusMarca;
+    private Integer statusType;
 
     @Column(name = "date_at", nullable = false, insertable = false, columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     private Date dateAt;
