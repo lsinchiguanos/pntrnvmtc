@@ -1,4 +1,4 @@
-package ec.viamatica.prueba.leslie.sinchiguano.models.dtos;
+package ec.viamatica.prueba.leslie.sinchiguano.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class BodyGenericResponse {
+public class BodyResponse {
     String _code;
     String _msg;
 }

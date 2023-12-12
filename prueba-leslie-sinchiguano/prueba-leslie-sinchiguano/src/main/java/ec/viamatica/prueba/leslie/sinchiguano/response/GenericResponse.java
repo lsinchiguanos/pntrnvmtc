@@ -1,4 +1,4 @@
-package ec.viamatica.prueba.leslie.sinchiguano.models.dtos;
+package ec.viamatica.prueba.leslie.sinchiguano.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
