@@ -2,6 +2,7 @@ package ec.viamatica.prueba.leslie.sinchiguano.models.services;
 
 
 import com.google.gson.Gson;
+import ec.viamatica.prueba.leslie.sinchiguano.dtos.MarcaDto;
 import ec.viamatica.prueba.leslie.sinchiguano.models.repositories.IMarcaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class MarcaService {
 
 
 
-    public String newMarca(String dataMarca){
-        String response = "";
+    public String newMarca(MarcaDto dataMarca){
         log.info("Value is: {}", dataMarca);
-        return response;
+        //marcaRepository.save(dataMarca);
+        return String.valueOf('{}');
     }
 }

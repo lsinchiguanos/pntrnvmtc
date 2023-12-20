@@ -1,6 +1,8 @@
 package ec.viamatica.prueba.leslie.sinchiguano.controllers;
 
+import ec.viamatica.prueba.leslie.sinchiguano.dtos.MarcaDto;
 import ec.viamatica.prueba.leslie.sinchiguano.models.services.MarcaService;
+import jakarta.validation.Valid;
 import org.slf4j.ILoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,8 +21,7 @@ public class MarcaController {
     MarcaService marcaService;
 
     @PostMapping(value = "/nwmrc", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String newMarca(@RequestBody String body){
-        marcaService.newMarca(body);
-        return null;
+    public String newMarca(@Valid @RequestBody MarcaDto marcaDto){
+        return marcaService.newMarca(marcaDto);
     }
 }
